@@ -1,0 +1,109 @@
+{
+  "projectType": "application",
+  "root": "apps/bookshell-core",
+  "sourceRoot": "apps/bookshell-core/src",
+  "prefix": "bookshellw",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/bookshell-core",
+        "index": "apps/bookshell-core/src/index.html",
+        "main": "apps/bookshell-core/src/main.ts",
+        "polyfills": "apps/bookshell-core/src/polyfills.ts",
+        "tsConfig": "apps/bookshell-core/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/bookshell-core/src/favicon.ico",
+          "apps/bookshell-core/src/assets"
+        ],
+        "styles": ["apps/bookshell-core/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/bookshell-core/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/bookshell-core/src/environments/environment.ts",
+              "with": "apps/bookshell-core/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/bookshell-core/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "bookshell-core:build:production"
+        },
+        "development": {
+          "browserTarget": "bookshell-core:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "publicHost": "http://localhost:4200"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "bookshell-core:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/bookshell-core/src/**/*.ts",
+          "apps/bookshell-core/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/bookshell-core"],
+      "options": {
+        "jestConfig": "apps/bookshell-core/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "serve-mfe": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx serve mining-book", "nx serve bookshell-core"]
+      }
+    }
+  },
+  "tags": []
+}

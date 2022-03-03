@@ -1,0 +1,28 @@
+{
+  "root": "apps/bookshell-core-e2e",
+  "sourceRoot": "apps/bookshell-core-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/bookshell-core-e2e/cypress.json",
+        "devServerTarget": "bookshell-core:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "bookshell-core:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/bookshell-core-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["bookshell-core"]
+}

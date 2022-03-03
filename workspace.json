@@ -1,4 +1,9 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "bookshell-core": "apps/bookshell-core",
+    "bookshell-core-e2e": "apps/bookshell-core-e2e",
+    "mining-book": "apps/mining-book",
+    "mining-book-e2e": "apps/mining-book-e2e"
+  }
 }
