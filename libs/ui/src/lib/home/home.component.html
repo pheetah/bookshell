@@ -1,0 +1,7 @@
+<p-sidebar [(visible)]="display" [showCloseIcon]="false">
+    <p-panelMenu [model]="items" [style]="{'width':'auto', 'margin-top': '20px'}"></p-panelMenu>
+</p-sidebar>
+
+<p-toolbar>
+    <button pButton type="button" icon = "pi pi-align-justify" class="p-button-raised p-button-rounded" (click)="display = true"></button>
+</p-toolbar>

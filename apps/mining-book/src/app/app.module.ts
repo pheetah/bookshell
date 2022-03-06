@@ -10,6 +10,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { RouterModule } from '@angular/router';
+import { DataQualityComponent } from './data-quality/data-quality.component';
+import { MajorTasksComponent } from './major-tasks/major-tasks.component';
+import { Part1Component } from './part1/part1.component';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],

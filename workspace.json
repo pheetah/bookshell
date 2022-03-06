@@ -4,6 +4,7 @@
     "bookshell-core": "apps/bookshell-core",
     "bookshell-core-e2e": "apps/bookshell-core-e2e",
     "mining-book": "apps/mining-book",
-    "mining-book-e2e": "apps/mining-book-e2e"
+    "mining-book-e2e": "apps/mining-book-e2e",
+    "ui": "libs/ui"
   }
 }
